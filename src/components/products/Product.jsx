@@ -1,16 +1,9 @@
-import React, { useEffect } from "react";
 // import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 
-function Product({ id, image, category, price, title, rate, count }) {
-  const [value, setValue] = React.useState(0);
-
-  useEffect(() => {
-    setValue(rate);
-  }, [rate]);
-
+function Product({ id, image, price, title, rate, count }) {
   return (
     <div className="col-12 col-sm-6 col-md-4 col-lg-3">
       <Card className="h-100">
@@ -26,7 +19,7 @@ function Product({ id, image, category, price, title, rate, count }) {
           <div className="d-flex align-items-center gap-2 mb-2">
             <Rating
               name="half-rating-read"
-              value={value}
+              value={rate}
               precision={0.1}
               readOnly
             />
