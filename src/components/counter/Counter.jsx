@@ -1,17 +1,25 @@
-import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { increament, decreament } from "../../store/counterSlice";
 
 function Counter() {
-  const [counter, setCounter] = useState(0);
+  const counterState = useSelector((state) => {
+    console.log(state);
+    return state.counter.value;
+  });
 
-  let increaseCounter = () => setCounter(counter + 1);
+  const dispatch = useDispatch();
+
+  let increaseCounter = () => {
+    dispatch(increament());
+  };
 
   let decreaseCounter = () => {
-    if (counter > 0) setCounter(counter - 1);
+    dispatch(decreament());
   };
 
   return (
     <div className="container text-center">
-      <h2>{counter}</h2>
+      <h2>{counterState}</h2>
       <div className="actions d-flex justify-content-center gap-3">
         <button onClick={increaseCounter} className="btn btn-primary">
           Increament
