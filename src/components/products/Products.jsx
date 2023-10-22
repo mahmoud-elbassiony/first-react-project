@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
+import useFetch from "../../hooks/useFetch";
 import Product from "./Product";
-import Spinner from "react-bootstrap/Spinner";
+import Loading from "../loading/Loading";
 
 function Products() {
-  const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  let getProducts = () => {
-    fetch("https://fakestoreapi.com/products")
-      .then((res) => res.json())
-      .then((json) => {
-        setProducts(json);
-        setIsLoading(false);
-      });
-  };
+  const {
+    data: products,
+    isLoading,
+    erorr,
+  } = useFetch("https://fakestoreapi.com/products");
 
   let productsList = products.map((pro) => (
     <Product
@@ -27,22 +21,11 @@ function Products() {
     />
   ));
 
-  useEffect(() => {
-    setIsLoading(true);
-    getProducts();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <Spinner className="d-block mx-auto" animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    );
-  }
-
   return (
     <div className="container">
-      <div className="row g-4">{productsList}</div>
+      {isLoading && <Loading />}
+      {erorr && <p>{erorr}</p>}
+      {products && <div className="row g-4 row-col-5">{productsList}</div>}
     </div>
   );
 }

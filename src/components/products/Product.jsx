@@ -2,12 +2,18 @@
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
+import "./product.css";
 
 function Product({ id, image, price, title, rate, count }) {
   return (
-    <div className="col-12 col-sm-6 col-md-4 col-lg-3">
+    <div className="col">
       <Card className="h-100">
-        <div className="h-75 d-flex align-items-center ">
+        <div className="h-75 d-flex align-items-center card-img">
+          <div className="img-layout">
+            {/* <Link to={`/${id}`} className="btn btn-primary" variant="primary">
+              View Details
+            </Link> */}
+          </div>
           <Card.Img
             variant="top"
             src={image}
