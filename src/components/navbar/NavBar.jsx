@@ -20,6 +20,7 @@ function NavBar() {
             <Link to={"/"}> Products</Link>
             <Link to={"/cart"}>Cart</Link>
             <Link to={"/counter"}>Counter</Link>
+            <Link to={"/login"}>Login/Register</Link>
             {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">

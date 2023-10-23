@@ -1,4 +1,6 @@
 import "./App.css";
+import { Login } from "./components/auth/Login";
+import Register from "./components/auth/Register";
 import Cart from "./components/cart/Cart";
 import Counter from "./components/counter/Counter";
 import NavBar from "./components/navbar/NavBar";
@@ -15,6 +17,8 @@ function App() {
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/:id" element={<ProductDetails />}></Route>
         <Route path="/counter" element={<Counter />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </BrowserRouter>
   );
